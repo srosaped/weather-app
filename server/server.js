@@ -1,11 +1,20 @@
 const express = require('express');
+
 const app = express();
 
-const port = process.env.PORT || 5000
+const bodyParser = require('body-parser');
+
+const PORT= 5000;
+
+app.use(bodyParser.urlencoded({ extended: true} ));
+app.use(bodyParser.json());
 
 
-app.get("/api", (req, res) => {
-    res.json({ "users": ["user1", "user2", "user3"] })
-})
+const weatherRoute = require('./routes/weather');
 
-app.listen(port, () => { console.log("server started on port: ", port)})
+app.use('/api', weatherRoute);
+
+app.use(express.static('public'));
+
+
+app.listen(PORT, () => { console.log("Server started on port: ", PORT)})
