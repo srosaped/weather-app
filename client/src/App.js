@@ -1,33 +1,32 @@
-import React, { useState } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react';
+
+import axios from 'axios';
 
 import Header from './components/Header/Header';
 import Form from 'react-bootstrap/Form';
 
+import './App.css';
 
 function App() {
 
   const [weatherData, setWeatherData] = useState([{}]);
-  let [city, setCity] = useState("");
+  const [city, setCity] = useState('');
 
-  city = ["Lisbon","Leiria", "Coimbra", "Porto", "Faro"];
+  const url_api =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0c4b856b1ffc682c8923d048d991fa4d`;
 
-  const getWeather = (event) => {
-   // if (event.cl === "Enter") {
-      fetch("http://localhost:5000/api/").then(
-        response => response.json()
-      ).then( 
-        data => {
-          setWeatherData(data)
-        }
-      )
-    //}
-    
+  const getWeather = () => {
+    axios.get(url_api).then(res => { 
+      setWeatherData(res.data)
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err)
+    })
   }
-
+  
   return (
     <div className="w-container">
+    
+
       <Header />
 
           <Form.Select
