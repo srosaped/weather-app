@@ -5,15 +5,38 @@ const fetch = (...args) => import('node-fetch')
 
 let router = express.Router();
 
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config();
+
+
+
+const apiKey = process.env.API_KEY;
+const cities = ["Lisbon","Leiria", "Coimbra", "Porto", "Faro"];
+const url_api = `https://api.openweathermap.org/data/2.5/weather?q=${cities}&appid=${apiKey}`;
+
+switch (cities) {
+    case "Portugal":
+        cities[0]
+        break;
+    case "Leiria":
+        cities[1]
+        break;
+    case "Coimbra":
+        cities[2]
+        break;
+    case "Porto":
+        cities[3]
+        break;
+    case "Faro":
+        cities[4]
+        break;
+    default:
+        "not a city"
+        break;
+}
 
 
 
 router.get("/", (req, res) => {
-
-    const url_api = `https://api.openweathermap.org/data/2.5/weather?id=2267057&appid=360d72420b151887160f1711b398855f`;
-
     fetch(url_api)
         .then(res => {return res.json() })
             .then(data => { 
@@ -21,6 +44,5 @@ router.get("/", (req, res) => {
                 res.send(data)
             });
 })
-
 
 module.exports = router;

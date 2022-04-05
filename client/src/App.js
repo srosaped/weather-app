@@ -9,16 +9,17 @@ import Form from 'react-bootstrap/Form';
 function App() {
 
   const [weatherData, setWeatherData] = useState([{}]);
-  const [city, setCity] = useState("");
+  let [city, setCity] = useState("");
+
+  city = ["Lisbon","Leiria", "Coimbra", "Porto", "Faro"];
 
   const getWeather = (event) => {
    // if (event.cl === "Enter") {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=360d72420b151887160f1711b398855f`).then(
+      fetch("http://localhost:5000/api/").then(
         response => response.json()
       ).then( 
         data => {
           setWeatherData(data)
-          
         }
       )
     //}
@@ -45,6 +46,7 @@ function App() {
             <option value="Porto">Porto</option>
             <option value="Faro">Faro</option>
           </Form.Select>
+          
           {typeof weatherData.main === 'undefined' ? (
             <div>
               <h2 className='sub-title'>Please choose your city wisely!</h2>
