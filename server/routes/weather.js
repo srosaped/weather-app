@@ -11,8 +11,8 @@ dotenv.config();
 
 
 router.get("/", (req, res) => {
-    const cityID= 2267057;
-    const url_api = `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=360d72420b151887160f1711b398855f`;
+
+    const url_api = `https://api.openweathermap.org/data/2.5/weather?id=2267057&appid=360d72420b151887160f1711b398855f`;
 
     fetch(url_api)
         .then(res => {return res.json() })
