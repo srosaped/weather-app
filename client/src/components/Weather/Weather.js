@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import '../Weather/weather.css';
-
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Weather() {
 
@@ -11,6 +11,7 @@ function Weather() {
     const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
     const url = process.env.REACT_APP_WEATHER_API_URL;
     const url_api = `${url}weather?q=${city}&appid=${apiKey}`;
+    const { isAuthenticated } = useAuth0();
 
     const getWeather = () => {
         axios.get(url_api).then(res => {
@@ -22,7 +23,7 @@ function Weather() {
     }
 
     return (
-
+        isAuthenticated && (
         <>
             <Form.Select
                 className='select-city'
@@ -63,6 +64,7 @@ function Weather() {
                 </>
             )}
         </>
+        )
     );
 }
 
