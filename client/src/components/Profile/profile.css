@@ -1,0 +1,23 @@
+.profile-wrapper {
+    display: flex;
+    
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(255, 166, 0, 0.697);
+    margin-top: 10px;
+}
+
+.user-name {
+    color: white;
+    font-size: 17px;
+    padding: 12px 10px 0;
+    margin:0;
+}
+
+.user-email {
+    color: white;
+}
