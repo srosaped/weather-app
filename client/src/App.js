@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import axios from 'axios';
 
@@ -6,13 +6,18 @@ import Header from './components/Header/Header';
 import Form from 'react-bootstrap/Form';
 
 import './App.css';
+import Auth0ProviderWithHistory from './auth0Provider';
+
+
 
 function App() {
 
   const [weatherData, setWeatherData] = useState([{}]);
   const [city, setCity] = useState('');
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+  const url= process.env.REACT_APP_WEATHER_API_URL;
 
-  const url_api =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0c4b856b1ffc682c8923d048d991fa4d`;
+  const url_api =`${url}weather?q=${city}&appid=${apiKey}`;
 
   const getWeather = () => {
     axios.get(url_api).then(res => { 
@@ -24,17 +29,14 @@ function App() {
   }
   
   return (
+    <Auth0ProviderWithHistory>
     <div className="w-container">
-    
-
       <Header />
-
           <Form.Select
             className='select-city'
             onChange={(e) => {
               const selectedCity = e.target.value;
               setCity(selectedCity);
-              
             }}
             onClick={getWeather}
           >
@@ -67,6 +69,7 @@ function App() {
             </>
           )}
     </div>
+    </Auth0ProviderWithHistory>
   );
 }
 
