@@ -6,9 +6,9 @@ import Header from './components/Header/Header';
 import Form from 'react-bootstrap/Form';
 
 import './App.css';
-import Auth0ProviderWithHistory from './auth0Provider';
-
-
+import LoginBtn from './components/Login/LoginBtn';
+import LogoutBtn from './components/Login/LogoutBtn';
+import Profile from './components/Profile/Profile';
 
 function App() {
 
@@ -29,8 +29,11 @@ function App() {
   }
   
   return (
-    <Auth0ProviderWithHistory>
+  
     <div className="w-container">
+      <LoginBtn />
+      <LogoutBtn />
+      <Profile />
       <Header />
           <Form.Select
             className='select-city'
@@ -69,7 +72,6 @@ function App() {
             </>
           )}
     </div>
-    </Auth0ProviderWithHistory>
   );
 }
 

@@ -11,16 +11,14 @@ require('dotenv').config();
 
 const apiKey = process.env.API_KEY;
 
-const cities = ["Lisbon","Leiria", "Coimbra", "Porto", "Faro"];
 
-/* for(let i=0; i < cities.length; i++) {
-     cities[i]
-} */
-const url_api = `https://api.openweathermap.org/data/2.5/weather?q=${cities}&appid=${apiKey}`;
+let city = "Lisboa";
+let url_api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-console.log(cities)
+console.log(city)
 
 router.get("/", (req, res) => {
+    
     fetch(url_api)
         .then(res => {return res.json() })
             .then(data => { 
