@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Form from 'react-bootstrap/Form';
 
 import './App.css';
+import './components/Login/login.css';
 import LoginBtn from './components/Login/LoginBtn';
 import LogoutBtn from './components/Login/LogoutBtn';
 import Profile from './components/Profile/Profile';
@@ -31,9 +32,11 @@ function App() {
   return (
   
     <div className="w-container">
-      <LoginBtn />
-      <LogoutBtn />
-      <Profile />
+      <div className='login-wrapper'>
+        <Profile />
+        <LoginBtn />
+        <LogoutBtn />
+      </div>
       <Header />
           <Form.Select
             className='select-city'

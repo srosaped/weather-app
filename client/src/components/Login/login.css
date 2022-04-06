@@ -1,0 +1,7 @@
+.log-btn {
+    background-color: rgba(255, 166, 0, 0.515);
+    border: none;
+}
+.log-btn:hover {
+    background-color: orange;
+}
