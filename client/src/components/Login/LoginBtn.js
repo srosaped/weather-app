@@ -8,14 +8,19 @@ import '../Login/login.css';
 
 
 const LoginBtn = () => {
+    
     const{ loginWithRedirect, isAuthenticated } = useAuth0();
+    const message = "Please login to see the weather!";
 
 
     return(
         !isAuthenticated && (
-            <Button className="log-btn login-btn" onClick={() => loginWithRedirect()}>
-                <FontAwesomeIcon icon={faUserPlus} />
-            </Button>
+            <>
+                <Button className="login-btn" onClick={() => loginWithRedirect()}>
+                    <FontAwesomeIcon icon={faUserPlus} />
+                </Button>
+                <p className='login-message'>{message}</p>
+            </>
         )
     )
 }

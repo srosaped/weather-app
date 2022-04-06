@@ -15,7 +15,7 @@ const LogoutBtn = () => {
     return(
         isAuthenticated && (
             <Button className="log-btn" onClick={() => logout()}>
-                <FontAwesomeIcon icon={ faArrowRightFromBracket} />
+                <FontAwesomeIcon className='btn-icon' icon={ faArrowRightFromBracket} />
             </Button>
         )
     )

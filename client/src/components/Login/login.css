@@ -9,8 +9,22 @@
     background-color: orange;
 }
 
+.btn-icon {
+    font-size: 11px;
+    margin-bottom: 10px;
+    margin-left: -5px;
+}
+
 .login-btn {
-    margin: 20px 0px;
+    background-color: rgba(255, 166, 0, 0.515);
+    border: none;
+    border-radius: 33%;
+    margin-bottom: 10px;
+    padding: 17px 19px 17px 25px;
+}
+
+.login-btn:hover {
+    background-color: orange;
 }
 .login-wrapper {
     position: fixed;
@@ -21,8 +35,8 @@
     width: 100%; 
     margin-right: 20px;
 }
-.svg-inline--fa{
-    font-size: 11px;
-    margin-bottom: 10px;
-    margin-left: -5px;
+
+.login-message {
+    color: white;
+    font-weight: bold;
 }
