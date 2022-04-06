@@ -1,6 +1,5 @@
 .profile-wrapper {
     display: flex;
-    
 }
 
 .profile-picture {
@@ -8,13 +7,13 @@
     width: 25px;
     height: 25px;
     border: 1px solid rgba(255, 166, 0, 0.697);
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .user-name {
     color: white;
     font-size: 17px;
-    padding: 12px 10px 0;
+    padding: 22px 10px 0;
     margin:0;
 }
 

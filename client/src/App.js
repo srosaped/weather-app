@@ -28,7 +28,8 @@ function App() {
       console.log(err)
     })
   }
-  
+
+
   return (
   
     <div className="w-container">
@@ -61,10 +62,13 @@ function App() {
           ) : (
           
           <div className="weather-widget">
-            <p className='w-name'>{weatherData.name}</p>
+            <p className='w-name'>{weatherData.name}, PT</p>
+            <p className='w-date'>{new Date().toLocaleDateString()}</p>
             <p className='w-temp'>{Math.round(weatherData.main.temp)}ºF</p>
-            <p className='w-sky'>{weatherData.weather[0].main}</p>
-            <img alt='icon' className='w-icon' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}/>
+            <div className='w-description'>
+              <img alt='icon' className='w-icon' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}/>
+              <p className='w-sky'>{weatherData.weather[0].description}</p>
+            </div>
           </div>
           )}
 

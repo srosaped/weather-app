@@ -4,22 +4,23 @@
     border-radius: 33%;
     height: 23px;
     width: 10px;
-    
 }
 .log-btn:hover {
     background-color: orange;
 }
 
+.login-btn {
+    margin: 20px 0px;
+}
 .login-wrapper {
     position: fixed;
     top:0;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     width: 100%; 
     margin-right: 20px;
 }
-
 .svg-inline--fa{
     font-size: 11px;
     margin-bottom: 10px;
