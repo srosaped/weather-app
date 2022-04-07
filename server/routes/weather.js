@@ -3,19 +3,17 @@ const express = require('express');
 const fetch = (...args) => import('node-fetch')
 .then(({default: fetch}) => fetch(...args));
 
-let router = express.Router();
+const router = express.Router();
 
 require('dotenv').config();
 
 
-
+const cityID = process.env.CITY_IDS;
 const apiKey = process.env.API_KEY;
 
+let url_api = `https://api.openweathermap.org/data/2.5/group?id=${cityID}&appid=${apiKey}`;
 
-let city = "Lisboa";
-let url_api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-console.log(city)
 
 router.get("/", (req, res) => {
     
@@ -23,7 +21,7 @@ router.get("/", (req, res) => {
         .then(res => {return res.json() })
             .then(data => { 
                 res.send(data)
-                console.log(data)
+                console.log("this is the:", data)
             });
 })
 
