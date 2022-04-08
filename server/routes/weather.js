@@ -8,7 +8,7 @@ const router = express.Router();
 require('dotenv').config();
 
 
-const cityID = process.env.CITY_IDS;
+const cityID = process.env.CITY_IDS
 const apiKey = process.env.API_KEY;
 
 let url_api = `https://api.openweathermap.org/data/2.5/group?id=${cityID}&appid=${apiKey}`;
@@ -21,7 +21,6 @@ router.get("/", (req, res) => {
         .then(res => {return res.json() })
             .then(data => { 
                 res.send(data)
-                console.log("this is the:", data)
             });
 })
 

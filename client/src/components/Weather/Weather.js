@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import '../Weather/weather.css';
@@ -8,6 +8,8 @@ function Weather() {
 
     const [weatherData, setWeatherData] = useState([{}]);
     const [city, setCity] = useState('');
+    const [temperature, setTemperature] = useState('');
+
     const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
     const url = process.env.REACT_APP_WEATHER_API_URL;
     const url_api = `${url}weather?q=${city}&appid=${apiKey}`;
@@ -17,10 +19,13 @@ function Weather() {
         axios.get(url_api).then(res => {
             setWeatherData(res.data)
             console.log(res.data)
+            setTemperature(res.data.main.temp - 273.15)
         }).catch(err => {
             console.log(err)
         })
     }
+
+
 
     return (
         isAuthenticated && (
@@ -33,7 +38,7 @@ function Weather() {
                 }}
                 onClick={getWeather}
             >
-                <option value='null'>Choose your city...</option>
+                <option>Choose your city...</option>
                 <option value="Lisbon">Lisbon</option>
                 <option value="Leiria">Leiria</option>
                 <option value="Coimbra">Coimbra</option>
@@ -49,7 +54,7 @@ function Weather() {
                 <div className="weather-widget">
                     <p className='w-name'>{weatherData.name}, PT</p>
                     <p className='w-date'>{new Date().toLocaleDateString()}</p>
-                    <p className='w-temp'>{Math.round(weatherData.main.temp)}ºF</p>
+                    <p className='w-temp'>{Math.round((temperature * 100) / 100)}ºC</p>
                     <div className='w-description'>
                         <img alt='icon' className='w-icon' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} />
                         <p className='w-sky'>{weatherData.weather[0].description}</p>
