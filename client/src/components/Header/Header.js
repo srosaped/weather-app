@@ -5,7 +5,7 @@ function Header() {
 
     return (
         <>
-            <h1 className='title'>Best Cities Weather App</h1>
+            <h1 className='title'>Weather App</h1>
         </>
     );
 }

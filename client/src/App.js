@@ -10,24 +10,30 @@ import Weather from './components/Weather/Weather';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
+
 function App() {
 
   const { isLoading } = useAuth0();
 
+  /*   function callProtectedApi() {
+    axios.get("http://localhost:5000/").then(response => console.log(response.data))
+  } */
+
+  
   if (isLoading) return <div>Loading...</div>
-  
+
   return (
-  
-    <div className="w-container">
-      <div className='login-wrapper'>
-        <Profile />  
-        <LogoutBtn />
-      </div>
-        <LoginBtn />
-        <Header />
-        <Weather />
-    </div>
-  );
+
+   <div className="w-container">
+     <div className='login-wrapper'>
+       <Profile />  
+       <LogoutBtn />
+     </div>
+       <LoginBtn />
+       <Header />
+       <Weather />
+   </div>
+ );
 }
 
 export default App;

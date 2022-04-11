@@ -1,5 +1,5 @@
 .weather-widget {
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.278);
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.592);
     background-color: #25252583;
     border-radius: 10px;

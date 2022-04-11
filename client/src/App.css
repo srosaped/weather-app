@@ -4,7 +4,6 @@
 .w-container {
     background-image: url('./assets/img/weather-bg.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
     padding: 25px;
     flex-direction: column;

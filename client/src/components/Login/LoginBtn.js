@@ -16,8 +16,12 @@ const LoginBtn = () => {
     return(
         !isAuthenticated && (
             <>
-                <Button className="login-btn" onClick={() => loginWithRedirect()}>
+                <Button 
+                    className="login-btn" 
+                    onClick={() => loginWithRedirect()}
+                >
                     <FontAwesomeIcon icon={faUserPlus} />
+                    
                 </Button>
                 <p className='login-message'>{message}</p>
             </>
