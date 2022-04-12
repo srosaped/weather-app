@@ -9,16 +9,12 @@ import Profile from './components/Profile/Profile';
 import Weather from './components/Weather/Weather';
 
 import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
 
 
 function App() {
 
   const { isLoading } = useAuth0();
-
-  /*   function callProtectedApi() {
-    axios.get("http://localhost:5000/").then(response => console.log(response.data))
-  } */
-
   
   if (isLoading) return <div>Loading...</div>
 
